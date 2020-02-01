@@ -1,0 +1,6 @@
+node_modules
+public/bundle.js.map
+public/bundle.js
+dev.sqlite3
+yarn-error.log
+.idea
