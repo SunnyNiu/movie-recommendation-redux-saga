@@ -1,33 +1,33 @@
-const path = require("path");
-module.exports = require("knex");
+const path = require('path');
+module.exports = require('knex');
 
 module.exports = {
-  entry: "./client/index.js",
+  entry: './client/index.js',
   output: {
-    path: path.join(__dirname, "server/public"),
-    filename: "bundle.js"
+    path: path.join(__dirname, 'server/public'),
+    filename: 'bundle.js',
   },
-  mode: "development",
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        loader: "babel-loader",
-        exclude: /node_modules/
-      }
-    ]
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+      },
+    ],
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts"]
+    extensions: ['.js', '.jsx', '.ts'],
   },
   devServer: {
     compress: true,
     hot: true,
-    contentBase: "./server/public"
+    contentBase: './server/public',
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   externals: {
-    sqlite3: "commonjs sqlite3",
-    knex: "commonjs knex"
-  }
+    sqlite3: 'commonjs sqlite3',
+    knex: 'commonjs knex',
+  },
 };

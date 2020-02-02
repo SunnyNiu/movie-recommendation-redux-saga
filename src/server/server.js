@@ -37,4 +37,4 @@ server.get('/recommend/:liked', (req, res) => {
     });
 });
 
-export default server;
+module.exports = server;
