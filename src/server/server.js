@@ -7,7 +7,7 @@ const TASTEDIVE_API = 'https://tastedive.com/api/similar?q=';
 const APIKey = '352362-MovieRec-XIQL1KMA';
 
 const server = express();
-server.use(express.static(path.join(__dirname, './public')));
+server.use(express.static(path.join(__dirname, '../../public')));
 server.use(express.json());
 
 server.get('/movie', (req, res) => {
@@ -37,4 +37,4 @@ server.get('/recommend/:liked', (req, res) => {
     });
 });
 
-module.exports = server;
+export default server;

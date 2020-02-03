@@ -11,7 +11,7 @@ const ASSET_PATH = process.env.ASSET_PATH || '';
 module.exports = () => ({
   mode: 'development',
   context: path.resolve(ROOT_PATH, 'src'),
-  entry: ['./index.js'],
+  entry: ['./client/index.js'],
   output: {
     publicPath: ASSET_PATH,
     path: path.resolve(ROOT_PATH, 'build'),
@@ -25,6 +25,17 @@ module.exports = () => ({
     host: 'localhost',
     noInfo: false,
     open: true,
+    proxy: {
+      '/movie': {
+        target: 'http://localhost:4000',
+      },
+      '/recommend': {
+        target: 'http://localhost:4000',
+      },
+      '/images': {
+        target: 'http://localhost:4000',
+      }
+    }
   },
   devtool: 'eval-source-map',
   module: {
@@ -44,7 +55,7 @@ module.exports = () => ({
     ],
   },
   resolve: {
-    modules: [path.resolve('node_modules')],
+    modules: [path.resolve('src'), path.resolve('src/client'), path.resolve('node_modules')],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -52,7 +63,7 @@ module.exports = () => ({
       minimize: true,
     }),
     new HtmlWebPackPlugin({
-      template: './index.html',
+      template: '../public/index.html',
       filename: './index.html',
       inject: false,
       showErrors: true,
