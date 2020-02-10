@@ -32,16 +32,10 @@ const RecommendMovies = ({ history, dispatch, likedMovies, movies }) => {
   return (
     <MovieContainer>
       <Title>You Probably Like these Movies:</Title>
-      {recommendMovies === undefined ? (
-        ''
-      ) : (
-        <div>
-          {recommendMovies.map((movie, index) => (
-            <Movie key={index} movie={movie} />
-          ))}
-        </div>
-      )}
-
+      {recommendMovies &&
+        recommendMovies.map((movie, index) => (
+          <Movie key={index} movie={movie} />
+        ))}
       <Button
         onClick={() => {
           history.push('/');
@@ -59,10 +53,9 @@ const mapStateToProps = state => ({
   likedMovies: state.app.likedMovies,
 });
 
-RecommendMovies.prototype = {
+RecommendMovies.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
   likedMovies: PropTypes.arrayOf(PropTypes.string).isRequired,
-  fetchRecommendMoviesCreator: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired,
   history: PropTypes.func.isRequired,
 };
