@@ -5,7 +5,7 @@ const server = require('./server');
 const mockGetMovie = { id: 2, name: 'Test2', image: './image1.png' };
 
 jest.mock('./db/db', () => ({
-  getRandomMovie: excludes => Promise.resolve(mockGetMovie),
+  getRandomMovie: () => Promise.resolve(mockGetMovie),
 }));
 
 describe('get random movie', () => {
