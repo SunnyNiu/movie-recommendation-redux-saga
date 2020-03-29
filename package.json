@@ -1,7 +1,7 @@
 {
-  "name": "react-form-demo",
+  "name": "movie-recommendation",
   "version": "0.2.0",
-  "description": "Form handling using React",
+  "description": "Recommend movies base on customer's choices",
   "main": "src/server/server.js",
   "scripts": {
     "start:server": "nodemon --exec 'babel-node src/server'",
@@ -75,5 +75,5 @@
     "styled-components": "^4.4.1",
     "styled-css-grid": "^1.2.1"
   },
-  "repository": "https://github.com/SunnyNiu/movie-recommendation.git"
+  "repository": "https://github.com/SunnyNiu/movie-recommendation-redux-saga"
 }
