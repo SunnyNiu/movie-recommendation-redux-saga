@@ -28,11 +28,7 @@ const Img = styled.img`
 
 const MovieExplorer = ({ fetchMovie, moviesIds, movie, likeMovie }) => {
   useEffect(() => {
-    const fetchFunc = async () => {
-      fetchMovie(moviesIds);
-    };
-
-    fetchFunc();
+    fetchMovie(moviesIds);
   }, []);
 
   if (movie === null) return null;
